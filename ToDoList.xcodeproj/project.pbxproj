@@ -15,6 +15,7 @@
 		6B242B911EC0DD740000D4BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B242B901EC0DD740000D4BB /* Assets.xcassets */; };
 		6B242B941EC0DD740000D4BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B242B921EC0DD740000D4BB /* LaunchScreen.storyboard */; };
 		6B242B9C1EC0DFAD0000D4BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B242B9B1EC0DFAD0000D4BB /* GoogleService-Info.plist */; };
+		6B242B9F1EC0EBF20000D4BB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B242B9E1EC0EBF20000D4BB /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		6B242B931EC0DD740000D4BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B242B951EC0DD740000D4BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B242B9B1EC0DFAD0000D4BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6B242B9D1EC0EBF20000D4BB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		6B242B9E1EC0EBF20000D4BB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D04A91F4A79995D3EE42E8EA /* libPods-ToDoList.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ToDoList.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8897840842EEE4693B049BA /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +82,8 @@
 				6B242B881EC0DD740000D4BB /* AppDelegate.m */,
 				6B242B8A1EC0DD740000D4BB /* ViewController.h */,
 				6B242B8B1EC0DD740000D4BB /* ViewController.m */,
+				6B242B9D1EC0EBF20000D4BB /* LoginViewController.h */,
+				6B242B9E1EC0EBF20000D4BB /* LoginViewController.m */,
 				6B242B8D1EC0DD740000D4BB /* Main.storyboard */,
 				6B242B901EC0DD740000D4BB /* Assets.xcassets */,
 				6B242B921EC0DD740000D4BB /* LaunchScreen.storyboard */,
@@ -230,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B242B9F1EC0EBF20000D4BB /* LoginViewController.m in Sources */,
 				6B242B8C1EC0DD740000D4BB /* ViewController.m in Sources */,
 				6B242B891EC0DD740000D4BB /* AppDelegate.m in Sources */,
 				6B242B861EC0DD740000D4BB /* main.m in Sources */,
