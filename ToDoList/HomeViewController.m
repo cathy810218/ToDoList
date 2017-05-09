@@ -42,9 +42,10 @@
 {
     [super viewDidLoad];
     self.isAddNewTodoPresent = NO;
-    [self.tableView registerNib:[UINib nibWithNibName:@"TodoCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TodoCell"];
+
+    self.tableView.estimatedRowHeight = 70;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 60;
+    [self.tableView registerNib:[UINib nibWithNibName:@"TodoCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TodoCell"];
     self.tableView.dataSource = self;
 }
 
