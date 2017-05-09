@@ -22,7 +22,7 @@
                         </label>
                         <table alignment="left" id="cNa-Al-uTL">
                             <items>
-                                <tableRow identifier="Table" id="0WU-1M-F1F">
+                                <tableRow identifier="TodoRowController" id="0WU-1M-F1F" customClass="TodoRowController">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="ZY1-hf-ike">
                                         <items>
                                             <label alignment="left" text="Todo" id="57H-XT-c4n">
@@ -33,9 +33,18 @@
                                             </label>
                                         </items>
                                     </group>
+                                    <connections>
+                                        <outlet property="contentLabel" destination="wgd-Y7-HBN" id="tVZ-4J-eHs"/>
+                                        <outlet property="todoLabel" destination="57H-XT-c4n" id="SiG-Km-DPz"/>
+                                    </connections>
                                 </tableRow>
                             </items>
                         </table>
+                        <button width="1" alignment="left" title="Add New" id="pry-Hm-qfq">
+                            <connections>
+                                <action selector="addNewButtonPressed" destination="AgC-eL-Hgc" id="WYg-DI-AYI"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="numberLabel" destination="07w-mK-lxP" id="hcd-gb-B2K"/>

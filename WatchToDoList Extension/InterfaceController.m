@@ -8,6 +8,7 @@
 
 #import "InterfaceController.h"
 #import "Todo.h"
+#import "TodoRowController.h"
 
 @interface InterfaceController ()
 
@@ -20,9 +21,41 @@
 
 @implementation InterfaceController
 
+- (NSArray<Todo *> *)allTodos
+{
+    Todo *firstTodo = [[Todo alloc] init];
+    firstTodo.title = @"First todo";
+    firstTodo.content = @"This is content";
+    
+    Todo *secondTodo = [[Todo alloc] init];
+    secondTodo.title = @"Second todo";
+    secondTodo.content = @"This is content";
+    
+    Todo *thirdTodo = [[Todo alloc] init];
+    thirdTodo.title = @"Third todo";
+    thirdTodo.content = @"This is content";
+    
+    return @[firstTodo, secondTodo, thirdTodo];
+}
+
+- (void)setupTable
+{
+    [self.table setNumberOfRows:self.allTodos.count withRowType:@"TodoRowController"];
+    for (NSInteger i = 0; i < self.allTodos.count; i++) {
+        TodoRowController *rowController = [self.table rowControllerAtIndex:i];
+        [rowController.todoLabel setText:self.allTodos[i].title];
+        [rowController.contentLabel setText:self.allTodos[i].content];
+    }
+}
+
+-(void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
+{
+    NSLog(@"did select: %i", rowIndex);
+}
+
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-
+    [self setupTable];
     // Configure interface objects here.
 }
 
@@ -34,6 +67,11 @@
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
+}
+- (IBAction)addNewButtonPressed {
+    [self presentTextInputControllerWithSuggestions:@[@"Call John", @"Buy food", @"Pick up Fafy"] allowedInputMode:WKTextInputModePlain completion:^(NSArray * _Nullable results) {
+        NSLog(@"%@", results);
+    }];
 }
 
 @end
