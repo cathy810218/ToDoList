@@ -13,6 +13,6 @@
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *content;
 
-- (instancetype)initWithTodoTitle:(NSString *)title andContent:(NSString *)content;
+- (instancetype)initWithTodoDictionary:(NSDictionary *)dict;
 
 @end

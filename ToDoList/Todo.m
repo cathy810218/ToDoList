@@ -10,12 +10,12 @@
 
 @implementation Todo
 
-- (instancetype)initWithTodoTitle:(NSString *)title andContent:(NSString *)content
+- (instancetype)initWithTodoDictionary:(NSDictionary *)dict
 {
     self = [super init];
     if (self) {
-        _title = title;
-        _content = content;
+        _title = dict[@"title"];
+        _content = dict[@"content"];
     }
     return self;
 }

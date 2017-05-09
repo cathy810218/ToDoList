@@ -87,13 +87,9 @@
         self.allTodos = [[NSMutableArray alloc] init];
         for (FIRDataSnapshot *child in snapshot.children) {
             NSDictionary *todoData = child.value;
-            NSString *todoTitle = todoData[@"title"];
-            NSString *todoContent = todoData[@"content"];
-            Todo *todo = [[Todo alloc] initWithTodoTitle:todoTitle andContent:todoContent];
+            Todo *todo = [[Todo alloc] initWithTodoDictionary:todoData];
             [self.allTodos addObject:todo];
             [self.tableView reloadData];
-
-            NSLog(@"Todo title: %@ - Content: %@", todoTitle, todoContent);
         }
    }];
 
