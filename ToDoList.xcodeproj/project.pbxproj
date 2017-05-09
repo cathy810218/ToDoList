@@ -26,6 +26,7 @@
 		6B17A5A81EC248F700AC6612 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B24912A1EC1397300D53813 /* Todo.m */; };
 		6B17A5AB1EC25B4A00AC6612 /* DetailTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5AA1EC25B4A00AC6612 /* DetailTodoViewController.m */; };
 		6B17A5AE1EC27DDD00AC6612 /* DetailTodoInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5AD1EC27DDD00AC6612 /* DetailTodoInterfaceController.m */; };
+		6B17A5B11EC288BB00AC6612 /* AllTodosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5B01EC288BB00AC6612 /* AllTodosViewController.m */; };
 		6B1B50471EC100320024A499 /* NewTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B50461EC100320024A499 /* NewTodoViewController.m */; };
 		6B242B861EC0DD740000D4BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B242B851EC0DD740000D4BB /* main.m */; };
 		6B242B891EC0DD740000D4BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B242B881EC0DD740000D4BB /* AppDelegate.m */; };
@@ -114,6 +115,8 @@
 		6B17A5AA1EC25B4A00AC6612 /* DetailTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTodoViewController.m; sourceTree = "<group>"; };
 		6B17A5AC1EC27DDD00AC6612 /* DetailTodoInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTodoInterfaceController.h; sourceTree = "<group>"; };
 		6B17A5AD1EC27DDD00AC6612 /* DetailTodoInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTodoInterfaceController.m; sourceTree = "<group>"; };
+		6B17A5AF1EC288BB00AC6612 /* AllTodosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllTodosViewController.h; sourceTree = "<group>"; };
+		6B17A5B01EC288BB00AC6612 /* AllTodosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllTodosViewController.m; sourceTree = "<group>"; };
 		6B1B50451EC100320024A499 /* NewTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTodoViewController.h; sourceTree = "<group>"; };
 		6B1B50461EC100320024A499 /* NewTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTodoViewController.m; sourceTree = "<group>"; };
 		6B242B811EC0DD740000D4BB /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,6 +274,8 @@
 				6B1B50461EC100320024A499 /* NewTodoViewController.m */,
 				6B242B9D1EC0EBF20000D4BB /* LoginViewController.h */,
 				6B242B9E1EC0EBF20000D4BB /* LoginViewController.m */,
+				6B17A5AF1EC288BB00AC6612 /* AllTodosViewController.h */,
+				6B17A5B01EC288BB00AC6612 /* AllTodosViewController.m */,
 				6B2491291EC1397300D53813 /* Todo.h */,
 				6B24912A1EC1397300D53813 /* Todo.m */,
 				6B24912C1EC13A7700D53813 /* TodoCell.h */,
@@ -559,6 +564,7 @@
 				6B24912B1EC1397300D53813 /* Todo.m in Sources */,
 				6B242B8C1EC0DD740000D4BB /* HomeViewController.m in Sources */,
 				6B242B891EC0DD740000D4BB /* AppDelegate.m in Sources */,
+				6B17A5B11EC288BB00AC6612 /* AllTodosViewController.m in Sources */,
 				6B1B50471EC100320024A499 /* NewTodoViewController.m in Sources */,
 				6B242B861EC0DD740000D4BB /* main.m in Sources */,
 				6B24912F1EC13A7700D53813 /* TodoCell.m in Sources */,
