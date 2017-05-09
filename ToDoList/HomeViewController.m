@@ -42,29 +42,28 @@
 {
     [super viewDidLoad];
     self.isAddNewTodoPresent = NO;
-    self.allTodos = [[NSMutableArray alloc] init];
     [self.tableView registerNib:[UINib nibWithNibName:@"TodoCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TodoCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 60;
+    self.tableView.dataSource = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     self.myTodoVC =  self.childViewControllers.firstObject;
-
     [self checkUserStatus];
 }
 
 - (void)checkUserStatus
 {
     if (![[FIRAuth auth] currentUser]) {
-        // Show LoginVC
         LoginViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         
         [self presentViewController:loginVC animated:YES completion:nil];
     } else {
         [self setupFirebase];
+        [self startMonitoringTodoUpdates];
     }
 }
 - (IBAction)logoutButtonPressed:(id)sender {
@@ -84,22 +83,25 @@
 - (void)startMonitoringTodoUpdates
 {
     self.allToDoLists = [[self.userReference child:@"todos"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-       
+        self.allTodos = [[NSMutableArray alloc] init];
         for (FIRDataSnapshot *child in snapshot.children) {
             NSDictionary *todoData = child.value;
-            
             NSString *todoTitle = todoData[@"title"];
             NSString *todoContent = todoData[@"content"];
             Todo *todo = [[Todo alloc] initWithTodoTitle:todoTitle andContent:todoContent];
             [self.allTodos addObject:todo];
+            [self.tableView reloadData];
+
             NSLog(@"Todo title: %@ - Content: %@", todoTitle, todoContent);
         }
-    }];
+   }];
+
 }
+
 - (IBAction)addButtonPressed:(id)sender
 {
     if (self.isAddNewTodoPresent) {
-        [self removeChildViewController];
+        [self hideChildViewController];
     } else {
         [self showChildViewController];
     }
@@ -115,7 +117,7 @@
     } completion:nil];
 }
 
-- (void)removeChildViewController
+- (void)hideChildViewController
 {
     self.isAddNewTodoPresent = NO;
     self.contentTopConstraint.constant = -214;

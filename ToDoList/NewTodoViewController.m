@@ -31,7 +31,7 @@
     FIRUser *currentUser = [[FIRAuth auth] currentUser];
     
     FIRDatabaseReference *userRef = [[databaseRef child:@"users"] child:currentUser.uid];
-    FIRDatabaseReference *newTodoRef = [[databaseRef child:@"todos"] childByAutoId];
+    FIRDatabaseReference *newTodoRef = [[userRef child:@"todos"] childByAutoId];
     [[newTodoRef child:@"title"] setValue:self.titleTextfield.text];
     [[newTodoRef child:@"content"] setValue:self.contentTextfield.text];
 }
