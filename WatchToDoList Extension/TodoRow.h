@@ -1,5 +1,5 @@
 //
-//  TodoRowController.h
+//  TodoRow.h
 //  ToDoList
 //
 //  Created by Cathy Oun on 5/9/17.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @import WatchKit;
 
-@interface TodoRowController : NSObject
+@interface TodoRow : NSObject
 
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *todoLabel;
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *contentLabel;

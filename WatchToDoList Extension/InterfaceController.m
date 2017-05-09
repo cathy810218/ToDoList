@@ -8,7 +8,8 @@
 
 #import "InterfaceController.h"
 #import "Todo.h"
-#import "TodoRowController.h"
+#import "TodoRow.h"
+#import "DetailTodoInterfaceController.h"
 
 @interface InterfaceController ()
 
@@ -42,15 +43,17 @@
 {
     [self.table setNumberOfRows:self.allTodos.count withRowType:@"TodoRowController"];
     for (NSInteger i = 0; i < self.allTodos.count; i++) {
-        TodoRowController *rowController = [self.table rowControllerAtIndex:i];
-        [rowController.todoLabel setText:self.allTodos[i].title];
-        [rowController.contentLabel setText:self.allTodos[i].content];
+        TodoRow *todoRow = [self.table rowControllerAtIndex:i];
+        [todoRow.todoLabel setText:self.allTodos[i].title];
+        [todoRow.contentLabel setText:self.allTodos[i].content];
     }
 }
 
--(void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
+- (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex
 {
     NSLog(@"did select: %i", rowIndex);
+    Todo *todo = self.allTodos[rowIndex];
+    [self pushControllerWithName:@"DetailTodoInterfaceController" context:todo];
 }
 
 - (void)awakeWithContext:(id)context {
