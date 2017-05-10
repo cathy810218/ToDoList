@@ -27,6 +27,8 @@
 		6B17A5AB1EC25B4A00AC6612 /* DetailTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5AA1EC25B4A00AC6612 /* DetailTodoViewController.m */; };
 		6B17A5AE1EC27DDD00AC6612 /* DetailTodoInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5AD1EC27DDD00AC6612 /* DetailTodoInterfaceController.m */; };
 		6B17A5B11EC288BB00AC6612 /* CompletedTodosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5B01EC288BB00AC6612 /* CompletedTodosViewController.m */; };
+		6B17A5B71EC2E68500AC6612 /* FIRManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5B61EC2E68500AC6612 /* FIRManager.m */; };
+		6B17A5BF1EC3A8D100AC6612 /* FirebaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5BE1EC3A8D100AC6612 /* FirebaseAPI.m */; };
 		6B1B50471EC100320024A499 /* NewTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B50461EC100320024A499 /* NewTodoViewController.m */; };
 		6B242B861EC0DD740000D4BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B242B851EC0DD740000D4BB /* main.m */; };
 		6B242B891EC0DD740000D4BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B242B881EC0DD740000D4BB /* AppDelegate.m */; };
@@ -117,6 +119,11 @@
 		6B17A5AD1EC27DDD00AC6612 /* DetailTodoInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTodoInterfaceController.m; sourceTree = "<group>"; };
 		6B17A5AF1EC288BB00AC6612 /* CompletedTodosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompletedTodosViewController.h; sourceTree = "<group>"; };
 		6B17A5B01EC288BB00AC6612 /* CompletedTodosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedTodosViewController.m; sourceTree = "<group>"; };
+		6B17A5B51EC2E68500AC6612 /* FIRManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIRManager.h; sourceTree = "<group>"; };
+		6B17A5B61EC2E68500AC6612 /* FIRManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIRManager.m; sourceTree = "<group>"; };
+		6B17A5BC1EC3A78B00AC6612 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
+		6B17A5BD1EC3A8D000AC6612 /* FirebaseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseAPI.h; sourceTree = "<group>"; };
+		6B17A5BE1EC3A8D100AC6612 /* FirebaseAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseAPI.m; sourceTree = "<group>"; };
 		6B1B50451EC100320024A499 /* NewTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTodoViewController.h; sourceTree = "<group>"; };
 		6B1B50461EC100320024A499 /* NewTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTodoViewController.m; sourceTree = "<group>"; };
 		6B242B811EC0DD740000D4BB /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +234,9 @@
 				6B17A59F1EC2466600AC6612 /* Assets.xcassets */,
 				6B17A5A11EC2466600AC6612 /* Info.plist */,
 				6B17A5931EC2466600AC6612 /* Supporting Files */,
+				6B17A5BC1EC3A78B00AC6612 /* Credentials.h */,
+				6B17A5BD1EC3A8D000AC6612 /* FirebaseAPI.h */,
+				6B17A5BE1EC3A8D100AC6612 /* FirebaseAPI.m */,
 			);
 			path = TVTodoList;
 			sourceTree = "<group>";
@@ -276,6 +286,8 @@
 				6B1B50461EC100320024A499 /* NewTodoViewController.m */,
 				6B17A5AF1EC288BB00AC6612 /* CompletedTodosViewController.h */,
 				6B17A5B01EC288BB00AC6612 /* CompletedTodosViewController.m */,
+				6B17A5B51EC2E68500AC6612 /* FIRManager.h */,
+				6B17A5B61EC2E68500AC6612 /* FIRManager.m */,
 				6B2491291EC1397300D53813 /* Todo.h */,
 				6B24912A1EC1397300D53813 /* Todo.m */,
 				6B24912C1EC13A7700D53813 /* TodoCell.h */,
@@ -549,6 +561,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B17A5AB1EC25B4A00AC6612 /* DetailTodoViewController.m in Sources */,
+				6B17A5BF1EC3A8D100AC6612 /* FirebaseAPI.m in Sources */,
 				6B17A5981EC2466600AC6612 /* AppDelegate.m in Sources */,
 				6B17A5951EC2466600AC6612 /* main.m in Sources */,
 				6B17A5A71EC2477200AC6612 /* TVViewController.m in Sources */,
@@ -567,6 +580,7 @@
 				6B17A5B11EC288BB00AC6612 /* CompletedTodosViewController.m in Sources */,
 				6B1B50471EC100320024A499 /* NewTodoViewController.m in Sources */,
 				6B242B861EC0DD740000D4BB /* main.m in Sources */,
+				6B17A5B71EC2E68500AC6612 /* FIRManager.m in Sources */,
 				6B24912F1EC13A7700D53813 /* TodoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
