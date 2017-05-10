@@ -9,37 +9,45 @@
 #import "TVViewController.h"
 #import "DetailTodoViewController.h"
 #import "Todo.h"
+#import "FirebaseAPI.h"
 
 @interface TVViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray<Todo *> *allTodos;
+@property (strong, nonatomic) NSMutableArray<Todo *> *allTodos;
 @end
 
 @implementation TVViewController
 
-- (NSArray<Todo *> *)allTodos
+//- (NSArray<Todo *> *)allTodos
+//{
+//    Todo *firstTodo = [[Todo alloc] init];
+//    firstTodo.title = @"First todo";
+//    firstTodo.content = @"This is content";
+//    
+//    Todo *secondTodo = [[Todo alloc] init];
+//    secondTodo.title = @"Second todo";
+//    secondTodo.content = @"This is content";
+//    
+//    Todo *thirdTodo = [[Todo alloc] init];
+//    thirdTodo.title = @"Third todo";
+//    thirdTodo.content = @"This is content";
+//    
+//    return @[firstTodo, secondTodo, thirdTodo];
+//}
+- (void)viewWillAppear:(BOOL)animated
 {
-    Todo *firstTodo = [[Todo alloc] init];
-    firstTodo.title = @"First todo";
-    firstTodo.content = @"This is content";
-    
-    Todo *secondTodo = [[Todo alloc] init];
-    secondTodo.title = @"Second todo";
-    secondTodo.content = @"This is content";
-    
-    Todo *thirdTodo = [[Todo alloc] init];
-    thirdTodo.title = @"Third todo";
-    thirdTodo.content = @"This is content";
-    
-    return @[firstTodo, secondTodo, thirdTodo];
+    [super viewWillAppear:animated];
+    [FirebaseAPI fetchAllTodosWithCompletionHandler:^(NSArray<Todo *> *allTodos) {
+        self.allTodos = [allTodos copy];
+        [self.tableView reloadData];
+    }];
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    // Do any additional setup after loading the view.
+    self.allTodos = [[NSMutableArray alloc] init];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -17,7 +17,6 @@
 @property (strong, nonatomic) FIRDatabaseReference *userReference;
 @property (strong, nonatomic) FIRUser *currentUser;
 @property (nonatomic) FIRDatabaseHandle allToDoLists;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *allCompletedTodos;
 
@@ -46,7 +45,6 @@
     FIRDatabaseReference *databaseRef = [[FIRDatabase database] reference];
     self.currentUser = [[FIRAuth auth] currentUser];
     self.userReference = [[databaseRef child:@"users"] child:self.currentUser.uid];
-    
     self.allToDoLists = [[self.userReference child:@"todos"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         self.allCompletedTodos = [[NSMutableArray alloc] init];
         for (FIRDataSnapshot *child in snapshot.children) {
@@ -81,7 +79,6 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         Todo *todo = self.allCompletedTodos[indexPath.row];
         [[[self.userReference child:@"todos"] child:todo.uniqueKey] removeValue];
     }

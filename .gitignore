@@ -14,6 +14,7 @@ Carthage/Build/
 ## Build generated
 build/
 DerivedData/
+Credentials.h
 
 ## Various settings
 *.pbxuser
