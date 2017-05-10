@@ -1,5 +1,5 @@
 //
-//  AllTodosViewController.h
+//  CompletedTodosViewController.h
 //  ToDoList
 //
 //  Created by Cathy Oun on 5/9/17.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AllTodosViewController : UIViewController
+@interface CompletedTodosViewController : UIViewController
 
 @end

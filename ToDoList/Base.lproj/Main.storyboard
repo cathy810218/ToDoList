@@ -106,7 +106,7 @@
                                 </connections>
                             </containerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NOC-sX-s73">
-                                <rect key="frame" x="0.0" y="194" width="375" height="473"/>
+                                <rect key="frame" x="0.0" y="194" width="375" height="424"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                             </tableView>
@@ -148,7 +148,7 @@
         <!--All Todo-->
         <scene sceneID="L4f-29-j0B">
             <objects>
-                <viewController id="Kbe-ti-vH3" customClass="AllTodosViewController" sceneMemberID="viewController">
+                <viewController id="Kbe-ti-vH3" customClass="CompletedTodosViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4et-dv-tkF"/>
                         <viewControllerLayoutGuide type="bottom" id="h47-Ak-KGN"/>
@@ -270,6 +270,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XzQ-Qp-6Te" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="FcQ-Up-42u">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

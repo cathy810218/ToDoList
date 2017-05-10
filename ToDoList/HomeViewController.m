@@ -15,7 +15,7 @@
 @import FirebaseAuth;
 @import Firebase;
 
-@interface HomeViewController () <UITableViewDataSource>
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) FIRDatabaseReference *userReference;
 @property (strong, nonatomic) FIRUser *currentUser;
@@ -47,6 +47,8 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.tableView registerNib:[UINib nibWithNibName:@"TodoCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TodoCell"];
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.allowsMultipleSelection = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -138,5 +140,18 @@
     cell.todoContentLabel.text = todo.content;
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TodoCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TodoCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+}
+
 
 @end

@@ -6,17 +6,17 @@
 //  Copyright © 2017 cathyoun. All rights reserved.
 //
 
-#import "AllTodosViewController.h"
+#import "CompletedTodosViewController.h"
 #import "Todo.h"
 #import "TodoCell.h"
 
-@interface AllTodosViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface CompletedTodosViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *allTodos;
 
 @end
 
-@implementation AllTodosViewController
+@implementation CompletedTodosViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
