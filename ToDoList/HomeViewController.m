@@ -15,13 +15,15 @@
 @import FirebaseAuth;
 @import Firebase;
 
-@interface HomeViewController () <UITableViewDataSource>
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) FIRDatabaseReference *userReference;
 @property (strong, nonatomic) FIRUser *currentUser;
 @property (nonatomic) FIRDatabaseHandle allToDoLists;
 @property (strong, nonatomic) NewTodoViewController *myTodoVC;
 @property (strong, nonatomic) NSMutableArray *allTodos;
+@property (strong, nonatomic) NSMutableArray *allCompletedTodos;
+
 @property (nonatomic) BOOL isAddNewTodoPresent;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTopConstraint;
@@ -47,6 +49,8 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.tableView registerNib:[UINib nibWithNibName:@"TodoCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TodoCell"];
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.allowsMultipleSelection = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -87,16 +91,15 @@
         self.allTodos = [[NSMutableArray alloc] init];
         for (FIRDataSnapshot *child in snapshot.children) {
             NSDictionary *todoData = child.value;
-            NSString *todoTitle = todoData[@"title"];
-            NSString *todoContent = todoData[@"content"];
-            Todo *todo = [[Todo alloc] initWithTodoTitle:todoTitle andContent:todoContent];
+            Todo *todo = [[Todo alloc] initWithTodoDictionary:todoData];
+            todo.uniqueKey = child.key;
             [self.allTodos addObject:todo];
+            if ([todo.isDone isEqualToNumber:@1]) {
+                [self.allCompletedTodos addObject:todo];
+            }
             [self.tableView reloadData];
-
-            NSLog(@"Todo title: %@ - Content: %@", todoTitle, todoContent);
         }
    }];
-
 }
 
 - (IBAction)addButtonPressed:(id)sender
@@ -128,6 +131,7 @@
     } completion:nil];
 }
 
+
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -138,9 +142,28 @@
 {
     TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TodoCell" forIndexPath:indexPath];
     Todo *todo = self.allTodos[indexPath.row];
-    cell.todoTitleLabel.text = todo.title;
-    cell.todoContentLabel.text = todo.content;
+    cell.todo = todo;
+    cell.accessoryType = [todo.isDone isEqual: @1] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TodoCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    Todo *todo = self.allTodos[indexPath.row];
+    FIRDatabaseReference *todoRef = [[self.userReference child:@"todos"] child:todo.uniqueKey];
+    [todoRef updateChildValues:@{@"isDone":@1}];
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TodoCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    Todo *todo = self.allTodos[indexPath.row];
+    FIRDatabaseReference *todoRef = [[self.userReference child:@"todos"] child:todo.uniqueKey];
+    [todoRef updateChildValues:@{@"isDone":@0}];
+}
+
 
 @end
