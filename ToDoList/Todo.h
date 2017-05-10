@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *content;
+@property (strong, nonatomic) NSNumber *isDone;
+@property (strong, nonatomic) NSString *uniqueKey;
 
 - (instancetype)initWithTodoDictionary:(NSDictionary *)dict;
 

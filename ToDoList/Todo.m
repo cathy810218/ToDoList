@@ -16,6 +16,7 @@
     if (self) {
         _title = dict[@"title"];
         _content = dict[@"content"];
+        _isDone = dict[@"isDone"];
     }
     return self;
 }

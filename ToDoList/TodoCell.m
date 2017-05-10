@@ -7,12 +7,23 @@
 //
 
 #import "TodoCell.h"
+@interface TodoCell ()
+@property (weak, nonatomic) IBOutlet UILabel *todoTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *todoContentLabel;
+
+@end
 
 @implementation TodoCell
 
+-(void)setTodo:(Todo *)todo
+{
+    self.todoTitleLabel.text = todo.title;
+    self.todoContentLabel.text = todo.content;
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

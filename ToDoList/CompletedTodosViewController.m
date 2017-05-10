@@ -9,10 +9,17 @@
 #import "CompletedTodosViewController.h"
 #import "Todo.h"
 #import "TodoCell.h"
+@import Firebase;
+@import FirebaseAuth;
 
 @interface CompletedTodosViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) FIRDatabaseReference *userReference;
+@property (strong, nonatomic) FIRUser *currentUser;
+@property (nonatomic) FIRDatabaseHandle allToDoLists;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *allTodos;
+@property (strong, nonatomic) NSMutableArray *allCompletedTodos;
 
 @end
 
@@ -20,21 +27,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.allTodos = [[NSMutableArray alloc] init];
+    [self setupTableView];
+    [self startMonitoringTodoUpdates];
 }
 
+- (void)setupTableView
+{
+    [self.tableView registerNib:[UINib nibWithNibName:@"TodoCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TodoCell"];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.allowsMultipleSelection = YES;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 70;
+}
+
+- (void)startMonitoringTodoUpdates
+{
+    FIRDatabaseReference *databaseRef = [[FIRDatabase database] reference];
+    self.currentUser = [[FIRAuth auth] currentUser];
+    self.userReference = [[databaseRef child:@"users"] child:self.currentUser.uid];
+    
+    self.allToDoLists = [[self.userReference child:@"todos"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        self.allCompletedTodos = [[NSMutableArray alloc] init];
+        for (FIRDataSnapshot *child in snapshot.children) {
+            NSDictionary *todoData = child.value;
+            Todo *todo = [[Todo alloc] initWithTodoDictionary:todoData];
+            todo.uniqueKey = child.key;
+            if ([todo.isDone isEqualToNumber:@1]) {
+                [self.allCompletedTodos addObject:todo];
+            }
+            [self.tableView reloadData];
+        }
+    }];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.allTodos.count;
+    return self.allCompletedTodos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TodoCell" forIndexPath:indexPath];
-    
+    cell.todo = self.allCompletedTodos[indexPath.row];
     return cell;
 }
 
