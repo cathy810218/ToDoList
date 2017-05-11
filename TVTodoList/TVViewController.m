@@ -8,6 +8,7 @@
 
 #import "TVViewController.h"
 #import "DetailTodoViewController.h"
+#import "LoginWithEmailViewController.h"
 #import "Todo.h"
 #import "FirebaseAPI.h"
 
@@ -18,29 +19,24 @@
 
 @implementation TVViewController
 
-//- (NSArray<Todo *> *)allTodos
-//{
-//    Todo *firstTodo = [[Todo alloc] init];
-//    firstTodo.title = @"First todo";
-//    firstTodo.content = @"This is content";
-//    
-//    Todo *secondTodo = [[Todo alloc] init];
-//    secondTodo.title = @"Second todo";
-//    secondTodo.content = @"This is content";
-//    
-//    Todo *thirdTodo = [[Todo alloc] init];
-//    thirdTodo.title = @"Third todo";
-//    thirdTodo.content = @"This is content";
-//    
-//    return @[firstTodo, secondTodo, thirdTodo];
-//}
-- (void)viewWillAppear:(BOOL)animated
+- (void)checkUserStatus
 {
-    [super viewWillAppear:animated];
-    [FirebaseAPI fetchAllTodosWithCompletionHandler:^(NSArray<Todo *> *allTodos) {
-        self.allTodos = [allTodos copy];
-        [self.tableView reloadData];
-    }];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"kUserEmailDefaultsKey"]) {
+            [FirebaseAPI fetchAllTodosWithCompletionHandler:^(NSArray<Todo *> *allTodos) {
+                self.allTodos = [allTodos copy];
+                [self.tableView reloadData];
+            }];
+    } else {
+        LoginWithEmailViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginWithEmailViewController"];
+        
+        [self presentViewController:loginVC animated:YES completion:nil];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self checkUserStatus];
 }
 
 - (void)viewDidLoad {
@@ -59,6 +55,14 @@
         detailVC.todo = self.allTodos[index.row];
 
     }
+}
+- (IBAction)logoutButtonPressed:(id)sender {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"kUserEmailDefaultsKey"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.allTodos = nil;
+        [self.tableView reloadData];
+        [self checkUserStatus];
+    });
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -74,6 +74,8 @@
 - (IBAction)logoutButtonPressed:(id)sender {
     NSError *signoutError;
     [[FIRAuth auth] signOut:&signoutError];
+    self.allTodos = nil;
+    [self.tableView reloadData];
     [self checkUserStatus];
 }
 

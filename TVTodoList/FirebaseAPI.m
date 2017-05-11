@@ -38,13 +38,17 @@
             NSDictionary *todosDict = userDictionary[@"todos"];
             for (NSString *key in userTodosKey) {
                 NSDictionary *todoDict = todosDict[key];
-                Todo *newTodo = [[Todo alloc] initWithTodoDictionary:todoDict];
-                newTodo.uniqueKey = key;
-                [allTodos addObject:newTodo];
+                NSString *userEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"kUserEmailDefaultsKey"];
+                if ([todoDict[@"email"] isEqualToString:userEmail]) {
+                    Todo *newTodo = [[Todo alloc] initWithTodoDictionary:todoDict];
+                    newTodo.uniqueKey = key;
+                    [allTodos addObject:newTodo];
+                }
             }
         }
-        completionHandler(allTodos);
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionHandler(allTodos);
+        });
     }] resume];
 }
 
