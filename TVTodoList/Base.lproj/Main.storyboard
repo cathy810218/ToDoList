@@ -53,9 +53,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slS-HC-VSj">
+                                <rect key="frame" x="856" y="954" width="209" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Viq-Ly-QgO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="slS-HC-VSj" secondAttribute="bottom" constant="40" id="1Xc-ii-k0I"/>
+                            <constraint firstItem="slS-HC-VSj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E7N-wx-8tf"/>
                             <constraint firstItem="2zR-FC-hAS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="XIR-iS-TT5"/>
                             <constraint firstItem="2zR-FC-hAS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="chJ-q0-vmK"/>
                             <constraint firstItem="2zR-FC-hAS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uwj-cP-UfL"/>
@@ -117,6 +127,63 @@
             </objects>
             <point key="canvasLocation" x="4334" y="74"/>
         </scene>
+        <!--Login With Email View Controller-->
+        <scene sceneID="lbL-Qs-bNu">
+            <objects>
+                <viewController storyboardIdentifier="LoginWithEmailViewController" id="AzH-hf-sOA" customClass="LoginWithEmailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uof-cW-MWd"/>
+                        <viewControllerLayoutGuide type="bottom" id="j4u-XW-3l9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3PB-dW-2ou">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S0I-vi-ru6">
+                                <rect key="frame" x="40" y="490" width="1840" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="QTj-IW-WdX"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Email to See Your Todos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyY-mI-hSQ">
+                                <rect key="frame" x="40" y="132" width="1840" height="120"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcl-7c-ARI">
+                                <rect key="frame" x="875" y="844" width="171" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="AzH-hf-sOA" eventType="primaryActionTriggered" id="s1S-9E-xRu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hcl-7c-ARI" firstAttribute="centerX" secondItem="3PB-dW-2ou" secondAttribute="centerX" id="3x1-2U-qSi"/>
+                            <constraint firstItem="S0I-vi-ru6" firstAttribute="centerX" secondItem="3PB-dW-2ou" secondAttribute="centerX" id="688-pS-Q2l"/>
+                            <constraint firstItem="xyY-mI-hSQ" firstAttribute="leading" secondItem="3PB-dW-2ou" secondAttribute="leadingMargin" constant="20" id="7x9-2z-TkE"/>
+                            <constraint firstItem="xyY-mI-hSQ" firstAttribute="centerX" secondItem="3PB-dW-2ou" secondAttribute="centerX" id="IMw-pM-mc1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="S0I-vi-ru6" secondAttribute="trailing" constant="20" id="Y2c-UH-cR6"/>
+                            <constraint firstItem="j4u-XW-3l9" firstAttribute="top" secondItem="hcl-7c-ARI" secondAttribute="bottom" constant="150" id="Z4h-WQ-y6p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xyY-mI-hSQ" secondAttribute="trailing" constant="20" id="jpw-WY-mgk"/>
+                            <constraint firstItem="S0I-vi-ru6" firstAttribute="centerY" secondItem="3PB-dW-2ou" secondAttribute="centerY" id="ouQ-bO-yML"/>
+                            <constraint firstItem="xyY-mI-hSQ" firstAttribute="top" secondItem="Uof-cW-MWd" secondAttribute="bottom" constant="132" id="t9g-96-dOa"/>
+                            <constraint firstItem="S0I-vi-ru6" firstAttribute="leading" secondItem="3PB-dW-2ou" secondAttribute="leadingMargin" constant="20" id="ufm-fT-NXg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextfield" destination="S0I-vi-ru6" id="BJF-Gu-rcW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVT-dE-hKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="91" y="83"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="JYQ-mw-wuY">
             <objects>
@@ -133,7 +200,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEY-UH-mZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="207" y="1263"/>
+            <point key="canvasLocation" x="6" y="1346"/>
         </scene>
     </scenes>
 </document>

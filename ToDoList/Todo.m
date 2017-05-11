@@ -17,6 +17,7 @@
         _title = dict[@"title"];
         _content = dict[@"content"];
         _isDone = dict[@"isDone"];
+        _email = dict[@"email"];
     }
     return self;
 }

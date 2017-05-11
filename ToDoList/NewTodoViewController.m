@@ -35,6 +35,7 @@
     
     [[newTodoRef child:@"title"] setValue:self.titleTextfield.text];
     [[newTodoRef child:@"content"] setValue:self.contentTextfield.text];
+    [[newTodoRef child:@"email"] setValue: [currentUser email]];
     [[newTodoRef child:@"isDone"] setValue:@0];
 }
 

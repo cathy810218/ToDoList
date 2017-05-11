@@ -29,6 +29,7 @@
 		6B17A5B11EC288BB00AC6612 /* CompletedTodosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5B01EC288BB00AC6612 /* CompletedTodosViewController.m */; };
 		6B17A5B71EC2E68500AC6612 /* FIRManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5B61EC2E68500AC6612 /* FIRManager.m */; };
 		6B17A5BF1EC3A8D100AC6612 /* FirebaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5BE1EC3A8D100AC6612 /* FirebaseAPI.m */; };
+		6B17A5C21EC3CF2000AC6612 /* LoginWithEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B17A5C11EC3CF2000AC6612 /* LoginWithEmailViewController.m */; };
 		6B1B50471EC100320024A499 /* NewTodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B50461EC100320024A499 /* NewTodoViewController.m */; };
 		6B242B861EC0DD740000D4BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B242B851EC0DD740000D4BB /* main.m */; };
 		6B242B891EC0DD740000D4BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B242B881EC0DD740000D4BB /* AppDelegate.m */; };
@@ -124,6 +125,8 @@
 		6B17A5BC1EC3A78B00AC6612 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		6B17A5BD1EC3A8D000AC6612 /* FirebaseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseAPI.h; sourceTree = "<group>"; };
 		6B17A5BE1EC3A8D100AC6612 /* FirebaseAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseAPI.m; sourceTree = "<group>"; };
+		6B17A5C01EC3CF2000AC6612 /* LoginWithEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWithEmailViewController.h; sourceTree = "<group>"; };
+		6B17A5C11EC3CF2000AC6612 /* LoginWithEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWithEmailViewController.m; sourceTree = "<group>"; };
 		6B1B50451EC100320024A499 /* NewTodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTodoViewController.h; sourceTree = "<group>"; };
 		6B1B50461EC100320024A499 /* NewTodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTodoViewController.m; sourceTree = "<group>"; };
 		6B242B811EC0DD740000D4BB /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +152,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5A4B6DC3F991D494C49514BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6B17A5641EC2333900AC6612 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,6 +236,8 @@
 			children = (
 				6B17A5961EC2466600AC6612 /* AppDelegate.h */,
 				6B17A5971EC2466600AC6612 /* AppDelegate.m */,
+				6B17A5C01EC3CF2000AC6612 /* LoginWithEmailViewController.h */,
+				6B17A5C11EC3CF2000AC6612 /* LoginWithEmailViewController.m */,
 				6B17A5A51EC2477200AC6612 /* TVViewController.h */,
 				6B17A5A61EC2477200AC6612 /* TVViewController.m */,
 				6B17A5A91EC25B4A00AC6612 /* DetailTodoViewController.h */,
@@ -329,6 +341,7 @@
 			buildPhases = (
 				6B17A5591EC2333900AC6612 /* Resources */,
 				6B17A5821EC2333900AC6612 /* Embed App Extensions */,
+				5A4B6DC3F991D494C49514BF /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -566,6 +579,7 @@
 				6B17A5951EC2466600AC6612 /* main.m in Sources */,
 				6B17A5A71EC2477200AC6612 /* TVViewController.m in Sources */,
 				6B17A5A81EC248F700AC6612 /* Todo.m in Sources */,
+				6B17A5C21EC3CF2000AC6612 /* LoginWithEmailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
