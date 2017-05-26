@@ -87,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D78465C1ED8CA3400907FE6 /* Credentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		4858453FF5A6C97D1F96E025 /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
 		6B17A55B1EC2333900AC6612 /* WatchToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B17A55E1EC2333900AC6612 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -122,7 +123,6 @@
 		6B17A5B01EC288BB00AC6612 /* CompletedTodosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompletedTodosViewController.m; sourceTree = "<group>"; };
 		6B17A5B51EC2E68500AC6612 /* FIRManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIRManager.h; sourceTree = "<group>"; };
 		6B17A5B61EC2E68500AC6612 /* FIRManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIRManager.m; sourceTree = "<group>"; };
-		6B17A5BC1EC3A78B00AC6612 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		6B17A5BD1EC3A8D000AC6612 /* FirebaseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseAPI.h; sourceTree = "<group>"; };
 		6B17A5BE1EC3A8D100AC6612 /* FirebaseAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseAPI.m; sourceTree = "<group>"; };
 		6B17A5C01EC3CF2000AC6612 /* LoginWithEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWithEmailViewController.h; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 				6B17A59F1EC2466600AC6612 /* Assets.xcassets */,
 				6B17A5A11EC2466600AC6612 /* Info.plist */,
 				6B17A5931EC2466600AC6612 /* Supporting Files */,
-				6B17A5BC1EC3A78B00AC6612 /* Credentials.h */,
+				3D78465C1ED8CA3400907FE6 /* Credentials.h */,
 				6B17A5BD1EC3A8D000AC6612 /* FirebaseAPI.h */,
 				6B17A5BE1EC3A8D100AC6612 /* FirebaseAPI.m */,
 			);

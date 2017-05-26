@@ -13,7 +13,7 @@
 
 + (void)fetchAllTodosWithCompletionHandler:(void (^)(NSArray<Todo *> *allTodos))completionHandler
 {
-    NSString *urlString = [NSString stringWithFormat:@"https://todolist-aee7c.firebaseio.com/users.json?auth=%@", APP_KEY]; // users -> endpoint
+    NSString *urlString = [NSString stringWithFormat:@"https://todolist-aee7c.firebaseio.com/users.json?auth=%s", APP_KEY]; // users -> endpoint
     NSURL *databaseURL = [NSURL URLWithString:urlString];
     
     //ephemeral wont cached
